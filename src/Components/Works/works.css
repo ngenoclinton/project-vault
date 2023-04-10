@@ -1,0 +1,212 @@
+.portfolio{
+    background-color:#b9d3db;
+    border-radius: 20px 20px 0 0;
+    height: fit-content;
+    padding-top:90px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.p-header{
+    font-size: 30px;  
+    padding: 0 0 2px 0;
+    font-weight:700;
+    font-family: "Libre Baskerville", serif;
+    overflow: hidden;
+    opacity: 1;
+    width:fit-content;
+    margin: 0 auto;
+    font-family: 'Josefin Sans', sans-serif;    
+}
+.p-title{
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-top: 1px solid rgb(204, 204, 204);
+}
+.flexSB{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.portfolio li{
+    font-size: 17px;
+    padding-left: 30px;
+    cursor: pointer;
+    transform: 0.5s;
+    list-style: none;
+}
+.portfolio li:hover, .portfolio li.active{
+    background: #6f346f;
+    color:#fff;
+    padding: 5px 10px;
+}
+.links{
+margin-top: 2rem;
+}
+.portfolio .box{
+    position: relative;
+    display: inline-block;
+    /* padding: 20px 0 40px 0; */
+    padding: 16px;
+}
+.portfolio .over-lay span{
+    font-size: 20px;
+    margin:0;
+    color:#6f346f;
+}
+.porfolio-grid{
+    width: 100%;    
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows:auto;   
+    padding-left: 60px;
+}
+.box .image img{
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 300px;    
+    min-height: 300px;
+    object-fit:fill;
+    cursor: pointer;    
+}
+.portfolio .over-lay{
+    position: absolute;
+    width: 90.5%;
+    bottom:20;
+    padding: 20px 10px 0;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    z-index: 1;
+    background-color: rgb(180, 180, 71);
+    margin-top: -3.2rem;
+    opacity: 0;
+    transition: 0.5s;
+    }
+.portfolio .box:hover .over-lay{
+    opacity: 1;
+}  
+@media screen and (min-width:300px) and (max-width:430px){
+.portfolio{
+    position: relative;
+    margin: 0;   
+    border-radius: 20px;
+}
+.p-header{
+    max-height: 4.5em;
+    margin-top: 30px;
+    margin-bottom: 105px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;    
+    color:rgb(11,52,65)!important;  
+}
+.p-title{
+    font-size: 56px!important;  
+    border: none;
+}
+.p-title>span:nth-child(2) {
+    font-size: 43px;
+}
+.sub-heading{
+    font-size: 35px!important;
+}
+.links{
+    display: none;
+}   
+.porfolio-grid{
+    margin: 0;
+    width: 100%!important;
+} 
+.portfolio .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%!important;
+}
+.box .image img{
+    min-width: 650px!important;    
+    max-width: 600px!important; 
+    min-height: 650px!important;
+    max-height: 600px!important; 
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: contain;
+    border-radius:20px;
+}
+
+.portfolio .over-lay span{
+    font-size: 34px!important;
+    width: 100%;
+}
+.portfolio .over-lay{
+    width: 64%;
+    top:400!important;
+    margin-top: 36rem;
+ }
+} 
+
+@media screen and (min-width:431px)  and (max-width: 768px) {
+    .portfolio{
+        height: fit-content;
+        width: 100%;
+        border-radius: 0;
+        padding: 0;
+    }
+    .p-title{
+        font-size: 34px!important;  
+        border: none;
+    }
+    .p-title>span:nth-child(2) {
+        font-size:20px;
+    }
+    .portfolio li{
+    font-size: 20px;
+    margin-bottom: 10px;
+    }
+    .portfolio .over-lay span{
+    font-size: 19px;
+    margin-top: 0.5rem;
+    width: 100%;
+    }
+    .portfolio .over-lay{
+        max-width: 89%;
+    }
+    .box .image img{
+    max-width: 250px;
+    min-width: 250px;
+    max-height: 250px;
+    min-height: 250px;
+    object-fit:fill;
+    }
+    .porfolio-grid{
+    width: 100%;
+    grid-template-columns:repeat(3, 1fr);
+    grid-gap:20px;    
+    }    
+}
+
+@media screen and (min-width:769px) and (max-width: 1025px){
+    .portfolio{
+        padding-left: 0;
+        padding-top:50px;
+    }
+    .p-title{
+        font-size: 35px;  
+    }
+    .p-title .sub-heading{
+        font-size: 22px;  
+    }
+    .portfolio li{
+        font-size: 22px;
+    }
+    .porfolio-grid{
+        width: 100%;    
+        grid-template-columns:repeat(3, 1fr);
+        grid-template-rows:auto;   
+        padding-left: 0;
+    }
+} 

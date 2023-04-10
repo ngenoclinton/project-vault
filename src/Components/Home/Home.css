@@ -1,0 +1,154 @@
+
+.hero{
+min-height: 100vh;
+background: #fff;
+color: #272341;
+z-index: -1;
+display: flex;
+align-items: center;
+padding: 0px 180px;
+}
+.hero .hero-text {
+  text-align: left;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+.hero-text h1{
+  font-family:"SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
+  font-size: 18px;
+}
+.hero-text h3{
+  opacity: 0.8;
+}
+.big-heading {
+  margin: 0px;
+  line-height: 5rem;
+  font-size: clamp(20px, 7vw, 60px);
+  opacity: 0.8;
+}
+.hero .hero-text,
+.hero .hero-btn{
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: opacity 1s ease-out, transform .8s ease-out;
+}
+.show .hero-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+.show .hero-btn{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .5s;
+}
+.btn--hero{
+  border: 0.13rem solid #5fc5de;
+  border-radius: 4px;
+  color: #232d5a;
+  /* color: #5fdede; */
+  padding: 0.7rem 2.5rem;
+  font-weight: 530;
+  font-size: 1.1rem;
+  z-index: 1;
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 50px;
+}
+.btn--hero::before{
+  content: "";
+  position:absolute;
+  width: 100%;
+  height:0%;
+  /* background-color: #1d2859; */
+  /* background-color: #715fde; */
+  background-color: #5fdade;
+
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  z-index: -1;   
+  transition: all .6s cubic-bezier(.19, 1, .22, 1);
+}
+.btn--hero:hover{
+     color: #fff;
+}
+.btn--hero:hover:before{
+  height: 100%;   
+  color: #fff; 
+}  
+/* media queries */
+@media (max-width: 1200em){
+      .hero .hero-btn {
+    justify-content: center;
+      }
+}
+@media (max-width: 1080px){
+  main.fillHeight {
+      padding: 0px 100px;
+  }
+  }
+@media (max-width: 992px){
+  .hero{
+    min-height: 810px;
+
+    padding: 0px 40px;
+    justify-content: flex-start;
+    }
+    .big-heading {
+      line-height: 5rem;
+      font-size: clamp(20px, 7vw, 60px);
+    }
+}
+@media (max-width: 768px){
+  .hero{
+    padding: 0px 40px;
+    justify-content: flex-start;
+    }
+    .big-heading {
+      line-height: 4.5rem;
+      font-size: clamp(20px, 6.5vw, 70px);
+    }
+}
+@media (max-width:768px){
+  .hero{
+    justify-content: flex-start;
+    /* margin-top: -2rem; */
+    min-height: 510px;
+  }
+  .big-heading {
+    line-height: 3.8rem;  
+    font-size: clamp(20px, 6.5vw, 60px);
+  }
+}
+@media (max-width: 587px){
+  .hero{
+    padding: 0px 20px;
+    }
+    .big-heading {
+      line-height:3.5rem;
+      font-size: clamp(30px, 7vw, 60px);
+    }
+}
+@media (max-width: 405px){
+  .hero{
+    min-height: 430px;
+  }
+    .big-heading {
+      line-height:2.7rem;
+      font-size: clamp(20px, 7vw, 50px);
+    }
+}
+
+@media (max-width: 284px){
+    .big-heading {
+      line-height:2rem;
+      font-size: clamp(10px, 7vw, 40px);
+    }
+    .hero .hero-btn {
+    }
+}

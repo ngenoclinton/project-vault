@@ -1,0 +1,236 @@
+.contact-form{
+    padding: 2rem 3rem 0 3rem;
+    display: flex;
+    height: fit-content;
+    margin-top: 4rem;
+    flex-direction: column;
+    gap: 20px;
+    background-color:rgba(240,248,255);
+}
+.curved-shape {
+    position: relative;
+    top:20px;
+}  
+.curved-shape::before {
+    content: "clint";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 0 50%;
+    background-color: #539bad!important;
+    z-index: -1;
+}
+.curved-shape::after {
+    content: "Get in touch";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 0 50% 50% 50%;
+    background-color: #539bad;
+    z-index: 1;
+    text-align: center;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+ .c-title{
+    font-size: 30px;
+    font-weight: 550;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    padding: 30px 200px;
+}
+.one {
+    grid-column: 1 / 2;
+  }
+  .two {
+    grid-column: 2 / 4;
+  }
+  .three {
+    grid-column: 1/4;
+  }
+  .four {
+    grid-column: 1/4;
+  }
+
+label{
+    width: 100%;
+}
+.contact-grid .user{
+    width: 100%;
+    padding: 0.3rem;
+    outline: none;
+    border: 1px solid gainsboro;
+    border-radius:2px;
+    font-size: 16px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+.contact-grid textarea{
+    height: 130px;
+    outline: none;
+    border: 1px solid gainsboro;
+    border-radius:2px;
+    font-size: 16px;
+}
+.f-item{
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.button{
+    width: 140px;
+    color: white;   
+    background-color: #2a8176;
+    border-radius: 50px;
+    border: none;
+    font-size: 17px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.button:hover{
+    background:purple;
+}
+.pop-up{
+    background: rgb(245,245,245);
+    opacity: 0.8;
+    border-radius: 1px;
+    color:black;
+    width: 400px;
+    height: 200px;
+    z-index: 50;
+    position: absolute;
+    bottom: 280px;
+    right: 400px;
+    font-size: 17px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pop-txt{
+    z-index: 60;
+    color:black;
+    position: absolute;
+    bottom: 350px;
+    right: 500px;
+    font-size: 17px;
+    font-weight: 200;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 430px){
+    .contact-form{
+        height: fit-content;
+    }
+   .curved-shape {
+        width: 90%;
+        display: grid;
+        place-content: center;
+        place-items: center;
+        font-size: 30px;
+        height: 20px; 
+      } 
+      .curved-shape::after {
+        border-radius: 50%  50% 50% 50%!important;  
+        font-size: 50px!important;   
+        height: 60px;   
+        display: grid;
+        place-content: center;
+    }
+    .contact-grid{
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        padding:30px 40px 40px 100px;        
+    }
+    .one {
+        grid-column: 1 / 5;
+    }
+    .two {
+        grid-column: 1/ 5;
+    }
+    .three {
+        grid-column: 1/5;
+    }
+    .four {
+        grid-column: 1/5;
+    }
+    .contact-grid label{
+        font-size: 37px;
+    }
+    .contact-grid .user{
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 35px;
+        height: 100px;
+        }
+    .contact-grid textarea{
+        height: 130px;
+        outline: none;
+        border: 1px solid gainsboro;
+        border-radius:2px;
+        font-size: 16px;
+        height: 250px!important;
+    }
+    .button{
+        width: 280px;
+        font-size: 40px;
+        padding: 20px;
+        margin-top: 40px;
+    }
+}
+@media only screen and (min-width:431px) and (max-width: 768px){
+    .contact-grid{
+        padding: 30px 120px;
+    }
+    .contact-grid .user{
+        padding: 10px!important;       
+        }
+    .curved-shape {
+          width: 95.5%;
+          display: grid;
+          place-content: center;
+          place-items: center;          
+        } 
+    .curved-shape::after {
+          border-radius: 0  50% 50% 50%;
+          font-size: 30px;
+          display: grid;
+          place-content: center;
+      }   
+    .f-item{
+        font-size: 20px;
+    }
+    .button{
+        width: 160px;
+        font-size: 20px;
+        padding: 10px;
+        margin-top: 15px;
+    }
+}
+@media screen and (min-width:769px) and (max-width: 1025px){
+    .curved-shape::after {
+        font-size: 30px;
+    }
+    .f-item{
+        font-size: 20px;
+    }
+}
