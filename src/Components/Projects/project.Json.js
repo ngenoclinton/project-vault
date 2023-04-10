@@ -22,7 +22,7 @@ export const projects  = [
     title: 'portfolio website', 
     description:'With a clean and modern design, my portfolio website is easy to navigate and provides visitors with a seamless browsing experience. It features a variety of sections that highlight my experience, skills, and projects. In addition to my portfolio, my website also includes my resume. The websites responsiveness ensures that it looks great on any device, from desktops to mobile phones, and its use of animation and interactivity adds a dynamic and engaging touch.',
     image:Portfolio,
-    link:'',
-    github:''
+    link:'https://project-vault-eight.vercel.app/',
+    github:'https://github.com/ngenoclinton/project-vault',
 }
 ];
