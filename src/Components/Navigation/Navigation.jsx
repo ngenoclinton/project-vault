@@ -26,14 +26,14 @@ function Navigation() {
                     </li>
                     <li><Link smooth to="#projects" className='nav-item'>Projects</Link> </li>
                     <li><Link smooth to="#contact" className='nav-item'>Contact</Link> </li> 
-                    {/* <Link
+                    <Link
                         rel="noreferrer"
                         target="_blank"
                         className="resume-btn nav-item"
                         href='/resume/ClintonNgenoResume.pdf'
                     >
                         View Resume
-                    </Link> */}
+                    </Link>
                    
                     <div>
                     <Link  
@@ -59,14 +59,14 @@ function Navigation() {
                     <li onClick={()=>setIsHidden(!isHidden)}>
                         <Link smooth to="#projects" className='nav-item'>Contact</Link> 
                     </li>
-                    {/* <Link
+                    <Link
                         rel="noreferrer"
                         target="_blank"
                         className="resume-btn nav-item"
                         href="assets/resume.pdf"
                     >
                         View Resume
-                    </Link>                     */}
+                    </Link>                   
                 <div>
                <Link
                target="_blank"
