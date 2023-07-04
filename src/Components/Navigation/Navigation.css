@@ -1,224 +1,60 @@
-.nav-container{
-    padding: 40px  40px 0;
-    width: 100%;
-    position: relative;
-    border-radius:0 0 10px 10px;
-}
-.Logo {
-    position: relative;
-    cursor: pointer;
-    font-size: 1.6rem;
-    background-image: linear-gradient(135deg, #0a5c5f 0%, #3380c9 100%);
-    background-size: 100%;
-    background-position: center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 0.7rem 1.5rem;
-    z-index: 1;
-    line-height: 1;
-    display: inline-block;
-    position: relative;
-    display:  flex;
-    align-items: center;
-    font-family: Playfair Display,serif;
-  } 
-  .Logo *{
-    border-image:linear-gradient(135deg, #02aab0 0%, #00cdac 100%); 
-    border-image-slice: 1;
-    color: #1d2859;
-    padding: 3px;
-  } 
-  .logo{
-    font-size: 2rem;
-    border-image:linear-gradient(135deg, #1d2859 0%, #00cdac 100%); 
-    border-image-slice: 1;
-    color: #1d2859;
-  } 
-.flex{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-.nav-menu ul .nav-item{
-    font-size: .95rem;
-    line-height: 1rem;
-}
-.nav-item:hover{
-    color: #1d2859;
-    border-bottom: 1px solid #1d2859;
-}
-.nav-menu li{
-    cursor: pointer;
-    list-style-type:none;
-}
-.nav-menu li:not(:last-child){
-    margin-right: 13px;
-}
-.nav-menu div:last-child{
-    margin-right: 40px;
-    border-left:1px solid #000;
-}
-.nav-menu div *{
-    margin-left: 18px;
-    cursor: pointer;
-}
-.nav-menu p{
-    list-style-type: none;
-    font-size: 17px;
-    color: #fff;
-    background: rgb(14,154,192);
-    padding: 0 10px;
-    border-radius: 50px;
-    cursor:pointer;
-}
-.resume-btn{
-    color: #1d2859;
-    padding: 6px 10px;
-    border: 1px solid #1d2859;
-    border-radius: 5px;
-    transition: .2s ease-in-out;
-}
-.resume-btn:hover{
-    background-color: #1d2859;
-    color: #fff;
+.icon {
+  position: relative;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, #0a5c5f 0%, #3380c9 100%);
+  background-size: 100%;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  display:  flex;
+  align-items: center;
+  font-family: 'Playfair Display',serif;
+} 
+.icon *{
+  border-image:linear-gradient(135deg, #02aab0 0%, #00cdac 100%); 
+  border-image-slice: 1;
+  color: #1d2859;
+  padding: 3px;
+} 
+.logo-name{
+  border-image:linear-gradient(135deg, #1d2859 0%, #00cdac 100%); 
+  border-image-slice: 1;
+  color: linear-gradient(135deg, #1d2859 0%, #00cdac 100%); 
+} 
+.dark-light {
+  color:#1d2859;
+  background:#1d2859; 
+  cursor: pointer;
 }
 /* side nav */
 .sidenav {
-    position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     width: 200px;
-    background-color: #fff;
     z-index: 100;
-    transform: translateX(-550px);
-    transition: transform 0.6s ease-in-out;
-  }
- .open{
-    display: none; 
- }
+    transform: translateX(1000px);
+    transition: transform 0.8s ease-in-out;
+  } 
+ 
  /* media queries */
-@media screen and (max-width: 1024px){    
-.nav-container{
-        padding: 25px 0 10px 15px;
-        width: 100%;
-        position: relative;
-        margin: 0 auto;
-    }
-.Logo{        
-      font-size: 1.8rem;
-    }
-.logo{
-        display:  flex;
-        align-items: center;
-        font-size: 2.2rem;
-    }
-.nav-menu ul li{
-       font-size: 1.1rem;
-    }
-}
-@media screen and (max-width:900px){    
-.nav-container{
-        padding: 25px 0 10px 15px;
-        width: 100%;
-        position: relative;
-        margin: 0 auto;
-    }
-.Logo{        
-        display:  flex;
-         align-items: center;
-         justify-content: flex-start;
-        font-size: 1.5rem;
-        }
-.logo{
-        display:  flex;
-        align-items: center;
-    }
-.nav-menu ul li{
-       font-size: 1.1rem;
-    }
-}
-
-@media screen and (max-width:732px) {    
-    .nav-container{
-            padding: 20px 0 10px 0;
-        }
-    .Logo{        
-          font-size: 1.4rem;
-        }
-    .logo{
-            font-size: 2.2rem;
-        }
-    .nav-menu ul li{
-           font-size: 1rem;
-        }
-     .nav-menu li:not(:last-child){
-    margin-right: 8px;
-}
-    .nav-menu div:last-child{
-        margin-right: 30px;
-    }
-    .nav-menu div *{
-        margin-left: 10px;
-        cursor: pointer;
-    }
-    }
- @media screen and (max-width: 680px){    
-    .nav-container{
-        padding: 5px  2px  0;
-    }
-    .Logo{
-        font-size: 1.5rem;
-        margin-left:-490px;  
-    }
-    .logo{
-        display:  flex;
-        align-items: center;
-    }
-    .nav-menu ul{
-        display: none;       
-    }     
-    .flex{
-        display: flex;
-        flex-direction: column;
-        justify-content:center;
-        gap: 50px;
-    }
-    .nav-menu li:not(:last-child){
-        margin: 0;
-    }
-    .nav-menu div:last-child{
-        border-left:none;
-    }
+ @media screen and (max-width: 768px){        
     /* side nav */
-        .sidenav.show{
-        background: rgba(54, 52, 52, 0.9);
+     .sidenav.show{
+        background: rgba(54, 52, 52);
         transform: translateX(0);
-        color: #fff;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
-        transition: transform 0.6s ease-in-out;
+        transition: transform 0.8s ease-in-out;
       }
       .sidenav .flex li{
-        list-style-type:none;
-        font-size: 15px;
-        cursor: pointer;
-        text-decoration: none;
-        display: flex;
-        justify-content: center;
-        margin:0 auto;
-
-      }
-      .sidenav .nav-item {
-        /* width: 100%; */
-        color: #fff;
-        padding: 5px;
-        text-align: center;
-        margin:0 auto;
-
+         list-style-type:none;
       }
       .sidenav .resume-btn {
         color: #fff;
@@ -267,45 +103,3 @@
      }   
  }
 
-@media screen and (max-width: 625px){ 
-    .Logo{
-        margin-left:-400px;  
-    }
-}
- @media screen and (max-width: 570px){ 
-    .Logo{
-        margin-left:-350px;  
-    }
-}
-@media screen and (max-width: 493px){    
-    .Logo{
-        margin-left:-280px;  
-    }
-    .nav-menu .open{
-        right: 25px;
-        font-size: 25px; 
-    }  
-}
-@media screen and (max-width: 425px){    
-    .Logo{
-        margin-left:-240px;  
-    }
-    .nav-menu .open{
-        right: 25px;
-    }  
-}
-@media screen and (max-width: 375px){    
-    .Logo{
-        margin-left:-220px;  
-    }
-}
-@media screen and (max-width: 365px){   
-    .Logo{
-        margin-left:-180px;  
-    }    
-}
-@media screen and (max-width: 329px){   
-    .Logo{
-        margin-left:-140px;  
-    }    
-}

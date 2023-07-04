@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState, useEffect, useContext} from 'react';
 import {HashLink as Link} from 'react-router-hash-link/dist/react-router-hash-link.cjs.production';
 // AOS
 import AOS from 'aos';
@@ -7,10 +7,13 @@ import {FaFacebook, FaTwitter, FaPinterest, FaInstagram, FaLinkedin, FaGithub} f
 
 import './Contact.style.css';
 import Form from './Form';
+import { DarkModeContext } from '../../contexts/modeContext/DarkModeContext';
 
 const ContactMe = ()=>{   
   const slideInParagraphRef = useRef(null);
   const fadeInHeaderRef = useRef(null);
+
+  const {darkMode} =useContext(DarkModeContext);
          // Initialize AOS with the default configuration
          AOS.init({
            duration: 1000,
@@ -74,13 +77,12 @@ const ContactMe = ()=>{
 
         /***************component ***/  
     return (
-   <div id="contact">
-      <section className="contact">
-        <div className="container">
-          <h2 className="section-title fade-in" ref={fadeInHeaderRef}>Contact</h2>
-          
-          <div  className="contact-wrapper">
-            <p className="contact-wrapper__text slide-in" ref={slideInParagraphRef}>Ready to move faster? Let's connect to help you and your team.</p>
+   <div id="contact" className='border-Grey3 border-opacity-10 border-b-[1px]'>
+      <section className={`mb-12 md:mb-20 ${darkMode ? 'mx-auto max-w-3xl':"contact"}`}>
+        <div className={`container space-y-5 ${darkMode ? 'mx-auto' :""}`}>
+          <h2 className={`section-title fade-in text-center text-4xl font-bold ${darkMode ? 'text-Grey4' : 'text-primaryWhite text-3xl'}`} ref={fadeInHeaderRef}>Give me your Idea:</h2>
+          <p ref={slideInParagraphRef} className={`text-center xs:text-[17px] leading-7 max-w-xl items-center justify-center mx-auto text-[15px] ${darkMode ? 'text-Grey3' : 'text-primaryWhite'}`}>I’m currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll get back to you!</p>
+          <div  className="contact-wrapper">            
           </div>
           <Form  data-aos='fade-left'/>
         </div>

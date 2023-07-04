@@ -2,7 +2,7 @@
     clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
     color: #fff;
     background-image: linear-gradient(135deg, rgb(31,60,55)0%, #00cdac 100%);
-    padding: 8rem 0 3rem;
+    padding: 8rem 0;
     position: relative;
 }
 .contact .container{    
@@ -11,15 +11,7 @@
     align-items: center;
     flex-direction: column;
 }
-.contact .section-title {
-    text-transform: uppercase;
-    margin: 0 0 2rem;
-    font-size: 1.5rem;
-    font-weight: bold;    
-    display: flex;
-    justify-content: center;
-    opacity: 0;
-}
+
 .contact .contact-wrapper {
     backface-visibility: hidden;
     margin: 0 auto;
@@ -28,12 +20,7 @@
     align-items: center;
     flex-direction: column
 }
-.contact .contact-wrapper__text {
-    margin-bottom: 1.7rem;
-    font-size: 1.1rem;
-    /* transform: translateX(-50%); */
-    /* opacity: 0; */
-}
+
 .contact-wrapper a {
     font-size: 1.3rem;
 }
@@ -65,7 +52,7 @@ color: yellowgreen;
 @media (max-width: 1024px){
     .contact {
         clip-path:none;
-        padding: 2.5rem 0 3em;
+        padding: 2.5rem 0;
     }
     .contact .section-title {
         margin: 0 0 1rem;

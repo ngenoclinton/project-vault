@@ -14,9 +14,10 @@ const Works= () => {
     return (
         <div className="portfolio" >
             
-                <div className='p-header'>
-                    <div className='p-title'>
-                        <span>Check out projects</span>
+                <div className='p-header hidden'>
+                    <div className='p-title hidden'>
+                        <span>02. </span>
+                        <span>Some Things I’ve Built</span>
                         <span className='move sub-heading'>(UPDATE) See Github Repositories</span>
                     </div>
                     <div className="underline-border"></div>

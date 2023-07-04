@@ -1,4 +1,4 @@
-import React, {useRef, useState,useEffect} from 'react';
+import React, {useRef, useState,useEffect, useContext} from 'react';
 import AOS from 'aos';
 
 // emailjs
@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './Form.css';
 
+import { DarkModeContext } from '../../contexts/modeContext/DarkModeContext';
 
 const Form = () =>{
 
@@ -18,6 +19,7 @@ const Form = () =>{
   const formRef = useRef(null);
 
   const [revealForm, setRevealForm] = useState(false);
+  const {darkMode} =useContext(DarkModeContext);
 
  // Initialize AOS with the default configuration
  AOS.init({
@@ -62,23 +64,23 @@ const Form = () =>{
   }
   /************************component*********/ 
     return (
-        <div className={`form-container ${revealForm ? "reveal reveal-from-right" : ""}`} ref={formRef} > 
+        <div className={`form-container  max-w-3xl w-full mx-auto ${revealForm ? "reveal reveal-from-right" : ""} ${darkMode&&'mx-auto'}`} ref={formRef} > 
             <span className='dark-blue-text form-title-text'>Jump-start Your Projects</span>       
             <form ref={form}  onSubmit={sendEmail}>
             <div className='input-1'>
-            <label for="name">Name:</label>
+            <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="user_name" placeholder='Your Name' required/>
             </div>            
             <div className='input-2'>
-            <label for="email">Email:</label>
+            <label htmlFor="email">Email:</label>
             <input type="email" id="email" name="user_email" placeholder='Your work email' required/>
             </div>
             <div className='textarea'>
-            <label for="message">Message:</label>
+            <label htmlFor="message">Message:</label>
             <textarea id="message" name="message" placeholder='What can we do for you?' required></textarea>
             </div>
             
-            <button type="submit" className='form-btn'>Hit me up</button>
+            <button type="submit" className='form-btn flex justify-center items-center mx-auto py-2 px-7 text-Grey6 text-lg bg-gradient-to-r from-[#02aab0] to-[#00cdac]'>Hit me up</button>
             </form>
      </div>
     )
