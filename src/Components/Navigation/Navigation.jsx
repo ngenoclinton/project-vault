@@ -38,10 +38,6 @@ function Navigation() {
 
                 <div className={`hidden md:flex lg:flex ${darkMode ? 'text-white' : ''}`}>
                     <ul className='flex mx-auto items-center text-base space-x-6'>
-                        {/* <li>
-                            <span className={`text-xs text-[#64ffda] mr-2 ${darkMode?'':'text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>01.</span>
-                            <Link smooth to="#projects" className={`text-Grey5  ${darkMode?'text-sm hover:text-[#64ffda]':'text-black text-base'}`}>Skills</Link> 
-                        </li> */}
                         <li>
                             <span className={`text-xs text-[#64ffda] mr-2 ${darkMode?'':'text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>02.</span>
                             <Link to="#projects" className={`text-Grey5  ${darkMode?'text-sm hover:text-[#64ffda]':'text-black text-base'}`}>Projects</Link> 
@@ -56,8 +52,7 @@ function Navigation() {
                             <span className={`text-xs text-[#64ffda] mr-2 ${darkMode?'':'text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>04.</span>
                             <Link smooth to="#contact" className={`text-Grey5  ${darkMode?'text-sm hover:text-[#64ffda]':'text-black text-base'}`}>Contact</Link> 
                         </li> 
-                        <a
-                            
+                        <a                            
                             target="_blank"
                             className="text-white bg-gradient-to-r from-[#02aab0] to-[#00cdac] px-5 py-1 text-sm rounded-md"
                             href={resume}

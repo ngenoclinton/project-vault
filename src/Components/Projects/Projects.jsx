@@ -56,9 +56,9 @@ const Projects = () =>{
                       <div className={`space-y-6 sx:space-y-6 sm:space-y-10 lg:space-y-7 lg:mx-0 ${position} bg-slate-950 bg-opacity-90 lg:bg-transparent lg:bg-opacity-100 ${!darkMode&&'project-wrapper__text'} top-0 left-0 right-0 bottom-0 lg:top-auto lg:left-auto lg:right-auto lg:bottom-auto py-10 px-3 xs:px-5 sm:py-20 lg:py-0 sm:px-10 lg:px- h-full`}>
                           <h3 className={`title text-xl sm:text-2xl text-Grey8 ${header} ${darkMode ? '': 'project-title'}`}>{project.title}</h3>
                           <div>
-                          <p className={`text-sm sm:text-[15px] leading-7 md:leading-normal text-Grey4 lg:bg-slate-950 lg:p-7 ${description} lg:rounded-lg ${darkMode ? '' : 'mb-4 description'}`}>
+                          {/* <p className={`text-sm sm:text-[15px] leading-7 md:leading-normal text-Grey4 lg:bg-slate-950 lg:p-7 ${description} lg:rounded-lg ${darkMode ? '' : 'mb-4 description'}`}>
                           {project.description}
-                          </p>
+                          </p> */}
                           </div>
                           <div className={`flex ${buttons} space-x-3`}>
                             <a
