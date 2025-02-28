@@ -41,7 +41,7 @@ const Navigation = () => {
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link to="#home" className="flex items-center space-x-2">
-            <BsFillDiscFill className={`text-2xl ${darkMode ? "text-teal-400" : "text-blue-600"}`} />
+            <BsFillDiscFill className={`text-2xl ${darkMode ? "text-white rounded-full bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 transition-all duration-300" : "text-white rounded-full bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 transition-all duration-300"}`} />
             <span className={`text-xl font-bold ${darkMode ? "text-white" : "text-slate-900"}`}>Clint.Dev</span>
           </Link>
 
