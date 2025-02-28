@@ -14,7 +14,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className={`h-fit mb-45 lg:mb-64 z-100 ${darkMode ? "" : "projects"}`}>
+    <section id="projects" className={`h-fit mb-45 z-100 ${darkMode ? "" : "projects"}`}>
       <div className="max-w-4xl xl:max-w-5xl mx-auto px-5 sm:px-0 space-y-14">
         <div className="flex items-center space-x-2 md:max-w-2xl lg:max-w-5xl sm:max-w-xl justify-center sm:justify-normal">
           <span className="text-teal-300 font-semibold">02. </span>
