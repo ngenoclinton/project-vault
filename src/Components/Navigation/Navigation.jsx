@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom"
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
 import { BsFillDiscFill, BsFillMoonStarsFill, BsSunFill } from "react-icons/bs"
 import { DarkModeContext } from "../../contexts/modeContext/DarkModeContext"
-import resume from "./Clinton_Kipkoech_ Ngeno_Resume.pdf"
+import resume from "./Clinton Kipkoech Ngeno_Resume.pdf"
 import "./Navigation.css"
 
 const Navigation = () => {
