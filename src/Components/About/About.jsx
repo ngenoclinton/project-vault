@@ -1,69 +1,72 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
+"use client"
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './About.css'
+import { useEffect, useContext } from "react"
+import { useLocation } from "react-router-dom"
+import "./About.css"
+import image from "./images/profile_photo.jpeg"
+import { DarkModeContext } from "../../contexts/modeContext/DarkModeContext"
 
-import image from './images/myImage1.jpg';
-
-import { DarkModeContext } from '../../contexts/modeContext/DarkModeContext';
-const About = () =>{
-    const titleRef = useRef(null);
-    const aboutRef = useRef(null);
-    const location = useLocation();
+const About = () => {
+  const location = useLocation()
+  const { darkMode } = useContext(DarkModeContext)
 
   useEffect(() => {
     if (location.hash) {
-      const element = document.querySelector(location.hash);
+      const element = document.querySelector(location.hash)
       if (element) {
-        element.scrollIntoView({top: 10, behavior: 'smooth' });
+        element.scrollIntoView({ top: 10, behavior: "smooth" })
       }
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" })
     }
-  }, [location]);
-    const [isHidden, setIsHidden] = useState(true);
+  }, [location])
 
-  const {darkMode} = useContext(DarkModeContext);
+  return (
+    <section id="about" className={`py-20 ${darkMode ? "bg-slate-900 text-gray-300" : "bg-gray-100 text-[#234E52]"}`}>
+      <div className="max-w-4xl mx-auto px-6 md:px-10 lg:px-0">
+        <div className="flex items-center space-x-2 mb-12">
+          <span className={`text-xl font-semibold ${darkMode ? "text-teal-400" : "text-teal-500"}`}>01.</span>
+          <h2 className="text-2xl md:text-3xl font-bold">About Me</h2>
+          <span className={`h-[1px] flex-grow ${darkMode ? "bg-gray-700" : "bg-teal-500"}`}></span>
+        </div>
 
-    return (
-    <section id="about" className={`${darkMode ? '' : 'about'}`} >
-    <div className={`max-w-2xl md:max-w-4xl px-10 xs:px-14  text-primaryWhite flex flex-col justify-center ${darkMode ? '':'container'} `}>
-    
-      <div className="flex items-center space-x-2 text-[17px] xs:text-lg">
-        <span className={`text-teal-300 font-semibold ${darkMode ? '' : 'text-[#1d2859]'}`}>01. </span>
-        <h2 className={`text-center text-Grey4 font-semibold text-xl xs:text-2xl ${darkMode ? '' : 'text-Grey8 '}`}>About me</h2>
-        <span className={`h-[1px] w-40 xs:w-56 sm:w-72 md:w-[330px] bg-slate-400 bg-opacity-30 flex justify-center ${darkMode ? '' : 'bg-Grey6'}`}></span>
-      </div>
-      
-      <div className={`flex flex-col space-y-10 gap-10 space-x-10 md:flex-row text-sm xs:text-base text-Grey4 leading-8 sm:leading-7 mt-8 md:mt-0 ${darkMode ? '':'text-primaryWhite xs:text-[15px]'}`}>
-          <div className={`md:mt-8 ${darkMode? '' : 'about-wrapper__info'}}`}>
-            <p className="">
-            I'm Clinton, a skilled front-end web developer freelancer. I specialize in creating user-friendly websites and web apps that engage and convert users. Proficient in HTML, CSS, JavaScript, front-end frameworks- React, Redux, and API integration. I bring designs to life and deliver seamless user experiences. With a strong focus on functionality and user engagement, my goal is to create exceptional web experiences.
+        <div className="flex flex-col md:flex-row items-start space-y-8 md:space-y-0 md:space-x-12">
+          <div className="md:w-2/3">
+          <p className={`${  darkMode ? "text-Grey4" : "text-slate-800"} text-sm sm:text-base leading-relaxed mb-4`}>
+              I'm Clinton, a skilled front-end web developer freelancer. I specialize in creating user-friendly websites
+              and web apps that engage and convert users. Proficient in HTML, CSS, JavaScript, front-end frameworks-
+              React, Redux, and API integration. I bring designs to life and deliver seamless user experiences.
             </p>
-            <p className="">I have a keen interest in developing websites with smooth transitions and exceptional performance. I can seamlessly join your team, using efficient continuous integration methods and tools like Git.</p>
-            <p className="">Here are a few technologies I’ve been working with recently:</p>
-            <ul className="skills-list">
-            <li>HTML/CSS</li>
-            <li>Node.js</li>        
-            <li>JavaScript (ES6+)</li>
-            <li>TypeScript(..learning)</li>
-            <li>React</li>
-            <li>Github</li>  
-            <li>TailwindCss</li>           
-            <li>Vercel</li>                              
+            <p className={`${  darkMode ? "text-Grey4" : "text-slate-800"} text-sm sm:text-base leading-relaxed mb-4`}>
+              I have a keen interest in developing websites with smooth transitions and exceptional performance. I can
+              seamlessly join your team, using efficient continuous integration methods and tools like Git.
+            </p>
+            <p className="mb-4 text-base  text-teal-500 font-semibold">Here are a few technologies I've been working with recently:</p>
+            <ul className="grid grid-cols-2 gap-2 text-sm">
+              <li>HTML/CSS</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React</li>
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>TailwindCSS</li>
+              <li>Git & GitHub</li>
             </ul>
           </div>
-          <div className="relative flex items-center justify-center md:items-start md:justify-normal">
-            <div className="h-64 w-64 border-[2px] border-teal-300 rounded-md transform 
-            translate-x-3 translate-y-3 shadow"></div>
-            <img src={image} alt='image-here' className='h-64 w-64 rounded absolute object-cover object-top '/>
+          <div className="md:w-1/3 relative">
+            <div
+              className={`absolute inset-0 transform translate-x-3 translate-y-3 rounded-md ${darkMode ? "bg-teal-400" : "bg-teal-600"}`}
+            ></div>
+            <img
+              src={image || "/placeholder.svg"}
+              alt="Clinton Ngeno"
+              className="relative z-10 rounded-md w-full h-auto object-cover"
+            />
           </div>
+        </div>
       </div>
-    </div>
-  </section>
-    )
+    </section>
+  )
 }
 
-export default About; 
+export default About
+

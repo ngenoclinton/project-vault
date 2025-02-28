@@ -1,49 +1,90 @@
-import {useContext} from 'react';
-import { Link } from 'react-router-dom';
+"use client"
+
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 import "./footer.css"
-import {FaTwitter, FaLinkedin, FaGithub} from 'react-icons/fa';
-import {BsFillDiscFill} from "react-icons/bs";
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
+import { BsFillDiscFill } from "react-icons/bs"
+import { DarkModeContext } from "../../contexts/modeContext/DarkModeContext"
 
-import { DarkModeContext  } from '../../contexts/modeContext/DarkModeContext';
-const Footer = () =>{
-const {darkMode} = useContext(DarkModeContext);
-    return(
-        <>
-            <div className="text-Grey5 my-10">                
-                <div className="space-y-12 mx-auto flex justify-center flex-col max-w-6xl">
-                    <div className="flex justify-center items-center w-full py-5 md:py-10">
-                    <Link to="#home">
-                        <BsFillDiscFill className={`text-3xl md:text-4xl text-Grey5 bg-gradient-to-r from-teal-400 to-blue-950 rounded-full ${darkMode?'':'icon'}`}/>
-                    </Link>
-                    </div>
-                    <div className='w-full flex flex-col justify-center relative'>
-                    <div className="h-[1px] border-0 bg-gradient-to-r from-transparent via-Grey4 to-transparent"></div>
-                           <ul className="text-sm sm:text-base text-Grey3 space-x-6 flex items-center py-10 mx-auto">                            
-                                <a target='' href="#about" className='text-Grey4'>About</a>
-                                <a target='' href="#projects" className='text-Grey4'>Projects</a>
-                                <a target='' href="#contact" className='text-Grey4'>Contact</a>
-                                <a target='_blank' href="" className='text-Grey4'>Source Code</a>
-                            </ul>
-                            <div className="h-[1px] border-0 bg-gradient-to-r from-transparent via-Grey4 to-transparent"></div>
-                    </div>
-                    <div className="flex justify-between items-center flex-col md:flex-row space-y-10 md:space-y-0 md:mx-10 xl:mx-0">
-                        <p className="text-sm flex items-center"> ©{new Date().getFullYear()} clinton ngeno</p>
-                        <div className="flex items-center space-x-8 text-xl ml-0 md:ml-16">
-                            <Link  
-                            target=""
-                            to='https://www.linkedin.com/in/clinton-ngeno-7b994a17a/' className='text-Grey4'><FaLinkedin /></Link>
-                            <Link 
-                            target=""
-                            to='https://github.com/ngenoclinton?tab=repositories' className='text-Grey4'><FaGithub /></Link> 
+const Footer = () => {
+  const { darkMode } = useContext(DarkModeContext)
 
-                            <Link target='' href="https://twitter.com/NgenoClinton" className='text-Grey4'><FaTwitter className="footerIcon"/></Link>
-                        </div>
-                        <p className='text-sm flex items-center'>clintonkipkoechngeno@gmail.com</p>
-                    </div>
-                </div>
+  return (
+    <footer className={`py-16 ${darkMode ? "bg-slate-900 text-gray-300" : "bg-[#F0F4F8] text-[#234E52]"}`}>
+      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-0">
+        <div className="flex flex-col items-center space-y-8">
+          <Link to="#home" className="transition-transform duration-300 hover:scale-110">
+            <BsFillDiscFill className={`text-4xl ${darkMode ? "text-teal-400" : "text-[#2C7A7B]"}`} />
+          </Link>
+
+          <nav className="w-full">
+            <ul className="flex justify-center space-x-6 text-sm md:text-base">
+              <li>
+                <a href="#about" className="hover:text-teal-400 transition-colors duration-300">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-teal-400 transition-colors duration-300">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-teal-400 transition-colors duration-300">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/yourusername/your-portfolio-repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal-400 transition-colors duration-300"
+                >
+                  Source Code
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+
+          <div className="w-full flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-sm">&copy; {new Date().getFullYear()} Clinton Ngeno</p>
+            <div className="flex space-x-6 text-xl">
+              <a
+                href="https://www.linkedin.com/in/clinton-ngeno-7b994a17a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-teal-400 transition-colors duration-300"
+              >
+                <FaLinkedin aria-label="LinkedIn" />
+              </a>
+              <a
+                href="https://github.com/ngenoclinton?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-teal-400 transition-colors duration-300"
+              >
+                <FaGithub aria-label="GitHub" />
+              </a>
+              <a
+                href="https://twitter.com/NgenoClinton"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-teal-400 transition-colors duration-300"
+              >
+                <FaTwitter aria-label="Twitter" />
+              </a>
             </div>
-        </>
-    )
+            <p className="text-sm">clintonkipkoechngeno@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
 }
 
-export default Footer;
+export default Footer
+

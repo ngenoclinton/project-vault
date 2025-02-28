@@ -1,42 +1,27 @@
 "use client"
 
-import { useEffect, useContext, useState } from "react"
-import AOS from "aos"
-import "aos/dist/aos.css"
-// import { projects } from "./projects.json"
-import {projects} from './project.Json'
+import { useContext } from "react"
+import { projects } from "./project.Json"
 import "./Projects.css"
 import { DarkModeContext } from "../../contexts/modeContext/DarkModeContext"
 
 const Projects = () => {
   const { darkMode } = useContext(DarkModeContext)
-  const [projectsLightMode, setProjectsLightMode] = useState(false)
-
-  const effectiveMode = projectsLightMode ? false : darkMode
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-      mirror: true,
-      offset: 100,
-    })
-  }, [])
 
   const toggleProjectsMode = () => {
-    setProjectsLightMode(!projectsLightMode)
+    // This function is kept for future use if needed
+    console.log("Toggle projects mode")
   }
 
   return (
-    <section id="projects" className={`h-fit mb-45 lg:mb-64 z-100 ${effectiveMode ? "" : "projects"}`}>
-      <div className="max-w-4xl xl:max-w-5xl mx-auto px-5 sm:px-0">
-        <div
-          className="flex items-center space-x-2 md:max-w-2xl lg:max-w-5xl sm:max-w-xl justify-center sm:justify-normal mb-16"
-          data-aos="fade-right"
-        >
+    <section id="projects" className={`h-fit mb-45 lg:mb-64 z-100 ${darkMode ? "" : "projects"}`}>
+      <div className="max-w-4xl xl:max-w-5xl mx-auto px-5 sm:px-0 space-y-14">
+        <div className="flex items-center space-x-2 md:max-w-2xl lg:max-w-5xl sm:max-w-xl justify-center sm:justify-normal">
           <span className="text-teal-300 font-semibold">02. </span>
           <h2
-            className={`project-header text-center text-Grey4 font-semibold sx:text-lg text-xl sm:text-2xl ${effectiveMode ? "" : "text-slate-900"}`}
+            className={`project-header text-center text-Grey4 font-semibold sx:text-lg text-xl sm:text-2xl ${
+              darkMode ? "" : "text-slate-900"
+            }`}
           >
             Some things I have built
           </h2>
@@ -44,20 +29,10 @@ const Projects = () => {
 
           <button
             onClick={toggleProjectsMode}
-            className="ml-auto flex items-center justify-center p-2 rounded-full transition-colors duration-300 hover:bg-slate-700 hover:bg-opacity-20"
-            data-aos="fade-left"
-            aria-label={projectsLightMode ? "Switch to dark mode" : "Switch to light mode"}
+            className="ml-auto flex items-center justify-center p-2 rounded-full hover:bg-slate-700 hover:bg-opacity-20"
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
-            {projectsLightMode ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-slate-800"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-              </svg>
-            ) : (
+            {darkMode ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-yellow-400"
@@ -70,36 +45,32 @@ const Projects = () => {
                   clipRule="evenodd"
                 />
               </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-slate-800"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+              </svg>
             )}
           </button>
         </div>
 
-        <div className="space-y-24 sm:space-y-32 lg:space-y-40">
+        <div className="space-y-24 sm:space-y-32">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="project-card relative"
-              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-              data-aos-delay={100}
-            >
+            <div key={index} className="project-card relative">
               <div className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} relative`}>
                 <div
-                  className={`project-image-container relative z-10 lg:w-7/12 overflow-hidden rounded-md transition-all duration-300 
+                  className={`project-image-container relative z-10 lg:w-7/12 overflow-hidden rounded-md
                     ${index % 2 === 0 ? "lg:mr-[-50px]" : "lg:ml-[-50px]"}`}
-                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-                  data-aos-delay={200}
                 >
-                  <a
-                    rel="noreferrer"
-                    href={project.link}
-                    target="_blank"
-                    className="block overflow-hidden rounded-md group"
-                  >
+                  <a rel="noreferrer" href={project.link} target="_blank" className="block overflow-hidden rounded-md">
                     <div className="image-wrapper overflow-hidden rounded-md relative">
-                      <div className="absolute inset-0 bg-teal-500 bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                       <img
                         alt={`${project.title} Project Screenshot`}
-                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-auto object-cover"
                         src={project.image || "/placeholder.svg"}
                         loading="lazy"
                       />
@@ -111,30 +82,56 @@ const Projects = () => {
                   className={`project-content z-20 lg:w-7/12 flex flex-col justify-center 
                     ${index % 2 === 0 ? "lg:text-right lg:items-end" : "lg:text-left lg:items-start"} 
                     p-6 lg:p-0`}
-                  data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
-                  data-aos-delay={300}
                 >
                   <h3
-                    className={`title text-xl sm:text-2xl font-bold mb-4 text-Grey8 ${effectiveMode ? "" : "project-title"}`}
+                    className={`title text-xl sm:text-2xl font-bold mb-4 text-Grey8 ${darkMode ? "" : "project-title"}`}
                   >
                     {project.title}
                   </h3>
 
                   <div
-                    className={`description-box ${effectiveMode ? "bg-slate-900 bg-opacity-90" : "bg-slate-100 bg-opacity-90"} p-6 rounded-md shadow-lg mb-6 max-w-lg`}
+                    className={`description-box ${
+                      darkMode ? "bg-slate-900 bg-opacity-90" : "bg-slate-100 bg-opacity-90"
+                    } p-6 rounded-md shadow-lg mb-6 max-w-lg`}
                   >
                     <p
-                      className={`${effectiveMode ? "text-Grey4" : "text-slate-800"} text-sm sm:text-base leading-relaxed`}
+                      className={`${
+                        darkMode ? "text-Grey4" : "text-slate-800"
+                      } text-sm sm:text-base leading-relaxed mb-4`}
                     >
                       {project.description}
                     </p>
+                    <h4 className={`font-semibold mb-2 ${index % 2 === 0 ? "lg:text-left lg:ml-12 lg:items-end lg:align-middle" : ""}  ${darkMode ? "text-Grey4" : "text-slate-800"}`}>
+                      Key Features:
+                    </h4>
+                    <ul className={`list-disc list-inside ${darkMode ? "text-Grey4" : "text-slate-800"} text-sm`}>
+                      {project.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className={` ${index % 2 === 0 ? "lg:text-left lg:ml-12 lg:items-end lg:align-middle" : ""}`}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-6">
+                    <h4 className={`font-semibold mb-2 ${darkMode ? "text-Grey4" : "text-slate-800"}`}>Tech Stack:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className={`px-2 py-1 rounded-full text-xs ${
+                            darkMode ? "bg-slate-700 text-Grey4" : "bg-slate-200 text-slate-800"
+                          }`}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className={`flex space-x-4 ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
                     <a
                       rel="noreferrer"
                       target="_blank"
-                      className={`project-btn rounded-sm hover:bg-teal-500 hover:text-white transition-colors duration-300 ${!effectiveMode && "project-btn-light"}`}
+                      className={`project-btn rounded-sm ${darkMode ? "" : "project-btn-light"}`}
                       href={project.link}
                     >
                       View Project
@@ -142,7 +139,7 @@ const Projects = () => {
                     <a
                       rel="noreferrer"
                       target="_blank"
-                      className={`project-btn rounded-sm hover:bg-teal-500 hover:text-white transition-colors duration-300 ${!effectiveMode && "project-btn-light"}`}
+                      className={`project-btn rounded-sm ${darkMode ? "" : "project-btn-light"}`}
                       href={project.github}
                     >
                       GitHub Repo

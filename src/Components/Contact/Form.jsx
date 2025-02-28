@@ -65,22 +65,31 @@ const Form = () =>{
   /************************component*********/ 
     return (
         <div className={`form-container  max-w-3xl w-full mx-auto ${revealForm ? "reveal reveal-from-right" : ""} ${darkMode&&'mx-auto'}`} ref={formRef} > 
-            <span className='dark-blue-text form-title-text'>Jump-start Your Projects</span>       
+            <span className='dark-blue-text form-title-text text-[#2C7A7B]'>Jump-start Your Projects</span>       
             <form ref={form}  onSubmit={sendEmail}>
             <div className='input-1'>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name" className='text-[#2C7A7B]'>Name:</label>
             <input type="text" id="name" name="user_name" placeholder='Your Name' required/>
             </div>            
             <div className='input-2'>
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" className='text-[#2C7A7B]'>Email:</label>
             <input type="email" id="email" name="user_email" placeholder='Your work email' required/>
             </div>
             <div className='textarea'>
-            <label htmlFor="message">Message:</label>
+            <label htmlFor="message" className='text-[#2C7A7B]'>Message:</label>
             <textarea id="message" name="message" placeholder='What can we do for you?' required></textarea>
             </div>
             
-            <button type="submit" className='form-btn flex justify-center items-center mx-auto py-2 px-7 text-Grey6 text-lg bg-gradient-to-r from-[#02aab0] to-[#00cdac]'>Hit me up</button>
+            <div className="mt-6 w-full flex justify-center">
+          <button
+            type="submit"
+            className={`w-full sm:w-auto py-2 px-6 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+              darkMode ? "bg-teal-600 hover:bg-teal-700" : "bg-[#2C7A7B] hover:bg-[#234E52]"
+            } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-colors duration-300`}
+          >
+            Send Message
+          </button>
+        </div>
             </form>
      </div>
     )

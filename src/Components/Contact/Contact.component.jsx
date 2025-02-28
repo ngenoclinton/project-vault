@@ -10,7 +10,7 @@ import Form from './Form';
 import { DarkModeContext } from '../../contexts/modeContext/DarkModeContext';
 
 const ContactMe = ()=>{   
-  const slideInParagraphRef = useRef(null);
+  // const slideInParagraphRef = useRef(null);
   const fadeInHeaderRef = useRef(null);
 
   const {darkMode} =useContext(DarkModeContext);
@@ -24,7 +24,7 @@ const ContactMe = ()=>{
           /************intersection observer***/  
           
   useEffect(() => {
-    const slideInParagraph = slideInParagraphRef.current;
+    // const slideInParagraph = slideInParagraphRef.current;
 
     const slideInOptions = {
       threshold: 1, // Triggers the paragraph animation when it is 50% visible
@@ -34,19 +34,19 @@ const ContactMe = ()=>{
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           // Add a CSS class to the paragraph to apply the sliding animation
-          slideInParagraph.classList.add('slide-in-animation');
+          // slideInParagraph.classList.add('slide-in-animation');
           // Stop observing the paragraph once the animation has been triggered
           observer.unobserve(entry.target);
         }
       });
     }, slideInOptions);
 
-    slideInObserver.observe(slideInParagraph);
+    // slideInObserver.observe(slideInParagraph);
 
     // Clean up function to remove the Intersection Observer when the component unmounts
-    return () => {
-      slideInObserver.unobserve(slideInParagraph);
-    };
+    // return () => {
+    //   slideInObserver.unobserve(slideInParagraph);
+    // };
   }, []);
 
   useEffect(() => {
@@ -78,10 +78,12 @@ const ContactMe = ()=>{
         /***************component ***/  
     return (
    <div id="contact" className='border-Grey3 border-opacity-10 border-b-[1px]'>
-      <section className={`mb-12 md:mb-20 ${darkMode ? 'mx-auto max-w-3xl':"contact"}`}>
-        <div className={`container space-y-5 ${darkMode ? 'mx-auto' :""}`}>
-          <h2 className={`section-title fade-in text-center text-4xl font-bold ${darkMode ? 'text-Grey4' : 'text-primaryWhite text-3xl'}`} ref={fadeInHeaderRef}>Give me your Idea:</h2>
-          <p ref={slideInParagraphRef} className={`text-center xs:text-[17px] leading-7 max-w-xl items-center justify-center mx-auto text-[15px] ${darkMode ? 'text-Grey3' : 'text-primaryWhite'}`}>I’m currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll get back to you!</p>
+      <section className={` ${
+              darkMode ? "" : "bg-[rgb(239,240,240)]"
+            }`}>
+        <div className={`container space-y-10 ${darkMode ? 'mx-auto' :""}`}>
+          <h2 className={`section-title fade-in text-center text-4xl font-bold ${darkMode ? 'text-Grey4' : 'text-gray-800 text-3xl'}`} ref={fadeInHeaderRef}>Say hi, I’ll get back to you!</h2>
+          {/* <p ref={slideInParagraphRef} className={`text-center xs:text-[17px] leading-7 max-w-xl items-center justify-center mx-auto text-[15px] ${darkMode ? 'text-Grey3' : 'text-gray-800'}`}>Say hi, I’ll get back to you!</p> */}
           <div  className="contact-wrapper">            
           </div>
           <Form  data-aos='fade-left'/>

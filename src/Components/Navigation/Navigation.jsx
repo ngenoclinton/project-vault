@@ -1,136 +1,169 @@
-import React,{Fragment, useEffect, useState} from 'react';
-import { useContext } from 'react';
-import {Outlet } from 'react-router-dom';
-import {HashLink as Link} from 'react-router-hash-link/dist/react-router-hash-link.cjs.production';
+"use client"
 
-import './Navigation.css';
+import { useState, useContext, useEffect } from "react"
+import { HashLink as Link } from "react-router-hash-link"
+import { Outlet } from "react-router-dom"
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa"
+import { BsFillDiscFill, BsFillMoonStarsFill, BsSunFill } from "react-icons/bs"
+import { DarkModeContext } from "../../contexts/modeContext/DarkModeContext"
+import resume from "./Clinton_Kipkoech_ Ngeno_Resume.pdf"
+import "./Navigation.css"
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext)
+  const [scrolled, setScrolled] = useState(false)
 
-import Resume from './resume/ClintonNgenoResume.pdf';
-import resume from './resume.pdf'
-import {FaTwitter, FaLinkedin, FaGithub, FaTimes} from 'react-icons/fa';
-import {BsFillDiscFill} from "react-icons/bs";
-import {BsFillMoonStarsFill} from 'react-icons/bs';
-// context import 
-import { DarkModeContext } from '../../contexts/modeContext/DarkModeContext';
-import { projects } from '../Projects/project.Json';
-
-
-function Navigation() {
-    const [isHidden, setIsHidden] = useState(true);  
-    // 
-    const {darkMode, toggleDarkMode} = useContext(DarkModeContext);
-
-    const darkModeToggle =()=>{
-        toggleDarkMode();
-        setIsHidden(!isHidden);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
     }
-    return(
-        <Fragment >         
-         <div  className= {`fixed top-0 left-0 w-full pt-9 pb-4 px-9 z-50 shadow-sm bg-slate-900 ${darkMode? '' : 'bg-veryLightGray'}`}>
-            <div className={`sticky flex max-w-6xl mx-auto justify-between  ${darkMode ? 'text-white' : ''}`}>
-                <Link smooth to="#home" className={`flex items-center space-x-1 justify-start ${darkMode?'text-white':'text-rgb(35, 45, 90, .9); '}`}>
-                    <BsFillDiscFill className={`text-2xl bg-gradient-to-r from-teal-400 to-blue-950 rounded-full ${darkMode?'':'icon'}`}/>
-                    <span className={`flex items-center text-transparent bg-gradient-to-r from-teal-400 via-[#64ffda] to-blue-950 bg-clip-text  mt-1 ${darkMode?'':'logo-name text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>Clint.Dev</span>
-                </Link>
 
-                <div className={`hidden md:flex lg:flex ${darkMode ? 'text-white' : ''}`}>
-                    <ul className='flex mx-auto items-center text-base space-x-6'>
-                        <li>
-                            <span className={`text-xs text-[#64ffda] mr-2 ${darkMode?'':'text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>02.</span>
-                            <Link to="#projects" className={`text-Grey5  ${darkMode?'text-sm hover:text-[#64ffda]':'text-black text-base'}`}>Projects</Link> 
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-                        </li>
-                        <li>
-                            <span className={`text-xs text-[#64ffda] mr-2 ${darkMode?'':'text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>03.</span>
-                            <Link smooth to="#about" className={`text-Grey5  ${darkMode?'text-sm hover:text-[#64ffda]':'text-black text-base'}`}>About</Link>
-                        </li>
-                        
-                        <li>
-                            <span className={`text-xs text-[#64ffda] mr-2 ${darkMode?'':'text-transparent bg-gradient-to-r from-[#1d2859] to-[#02aab0] bg-clip-text'}`}>04.</span>
-                            <Link smooth to="#contact" className={`text-Grey5  ${darkMode?'text-sm hover:text-[#64ffda]':'text-black text-base'}`}>Contact</Link> 
-                        </li> 
-                        <a                            
-                            target="_blank"
-                            className="text-white bg-gradient-to-r from-[#02aab0] to-[#00cdac] px-5 py-1 text-sm rounded-md"
-                            href={resume}
-                            download
-                        >
-                        Resume
-                        </a>
-                    
-                        {/* <div className="hidden lg:flex items-center space-x-5 text-xl text-primaryWhite">
-                            <Link  
-                            target="_blank"
-                            to='https://www.linkedin.com/in/clinton-ngeno-7b994a17a/' className='text-Grey4'><FaLinkedin /></Link>
-                            <Link 
-                            target="_blank"
-                            to='https://github.com/ngenoclinton?tab=repositories' className='text-Grey4'><FaGithub /></Link> 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
-                            <BsFillMoonStarsFill onClick={toggleDarkMode} className='text-Grey4'/>                   
-                        </div> */}
-                    </ul>                       
-                </div>            
-            </div>  
-            {/* hamburger Button */}
-            <div  className={`flex flex-col justify-end items-end space-y-2 absolute top-10 right-10 transform md:hidden lg:hidden`} onClick={()=>setIsHidden(!isHidden)} >
-                <span className={` bg-teal-500 h-[2px] w-8 ${darkMode ? "":"bg-[#272341]"}`}/>
-                <span className={` bg-teal-500 h-[2px] w-9 mr-1 ${darkMode ? "":"bg-[#272341]"}`}/>
-                <span className={` bg-teal-500 h-[2px] w-8 ${darkMode ? "":"bg-[#272341]"}`}/>
+  const navItems = [
+    { number: "01", text: "About", link: "#about" },
+    { number: "02", text: "Projects", link: "#projects" },
+    // { number: "03", text: "Skills", link: "#skills" },
+    { number: "04", text: "Contact", link: "#contact" },
+  ]
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "py-2 bg-opacity-90 backdrop-blur-sm" : "py-4"
+        } ${darkMode ? "bg-slate-900 text-white" : "bg-white text-slate-900"}`}
+      >
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link to="#home" className="flex items-center space-x-2">
+            <BsFillDiscFill className={`text-2xl ${darkMode ? "text-teal-400" : "text-blue-600"}`} />
+            <span className={`text-xl font-bold ${darkMode ? "text-white" : "text-slate-900"}`}>Clint.Dev</span>
+          </Link>
+
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-14">
+            {navItems.map((item, index) => (
+              <Link key={index} to={item.link} className="group relative overflow-hidden">
+                <span className={`text-xs ${darkMode ? "text-teal-400" : "text-blue-600"} mr-1`}>{item.number}.</span>
+                <span className={`text-sm ${darkMode ? "text-gray-300" : "text-slate-700"}`}>{item.text}</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              </Link>
+            ))}
+            <a
+              href={resume}
+              download
+              className="px-4 py-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 transition-all duration-300"
+            >
+              Resume
+            </a>
+          </div>
+
+          <button
+            onClick={toggleDarkMode}
+            className="hidden md:block p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? <BsSunFill className="text-yellow-400" /> : <BsFillMoonStarsFill className="text-slate-700" />}
+          </button>
+
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-5 flex flex-col justify-between items-center">
+              <span
+                className={`w-full h-0.5 ${darkMode ? "bg-white" : "bg-slate-900"} transform transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2.5" : ""}`}
+              />
+              <span
+                className={`w-full h-0.5 ${darkMode ? "bg-white" : "bg-slate-900"} transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`w-full h-0.5 ${darkMode ? "bg-white" : "bg-slate-900"} transform transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2.5" : ""}`}
+              />
             </div>
-            <div  className={`sidenav mx-auto h-auto md:hidden ${isHidden ? '':'show'} fixed z-50 pt-14`}>
-                <div className="flex flex-col items-center space-y-10 justify-center my-auto ">
-                    <li onClick={()=>setIsHidden(!isHidden)}>
-                        <Link smooth to="#about" className='nav-item text-lg w-full mx-auto py-6 my-auto'>About</Link>
-                    </li>
-                    <li onClick={()=>setIsHidden(!isHidden)}>
-                        <Link smooth to="#skills" className='nav-item text-lg w-full mx-auto py-6'>Skills</Link>
-                    </li>
-                    <li onClick={()=>setIsHidden(!isHidden)}>
-                        <Link smooth to="#projects" className='nav-item text-lg w-full mx-auto py-6'>Projects</Link> 
-                    </li> 
-                    <li onClick={()=>setIsHidden(!isHidden)}>
-                        <Link smooth to="#projects" className='nav-item text-lg w-full mx-auto py-6'>Contact</Link> 
-                    </li>
-                    <Link
-                        target="_blank"
-                        className="resume-btn nav-item w-xl cursor-pointer"
-                        href="assets/resume.pdf"
-                    >
-                        View Resume
-                    </Link>                   
-                    <div>
-                        <Link
-                        target="_blank"
-                        to='https://www.linkedin.com/in/clinton-ngeno-7b994a17a/'
-                        className='text-Grey4 text-base'><FaLinkedin /></Link>
-                        <Link
-                        target="_blank"
-                        to='https://github.com/ngenoclinton?tab=repositories'
-                        className={`text-Grey4 text-xl ${darkMode ? '' : 'text-slate-700'}`}><FaGithub /></Link>
-
-                        <BsFillMoonStarsFill onClick={darkModeToggle} /> 
-                    </div>
-                </div>
-                
-        {/* Close nav button */}
-                <div
-                    className={`flex flex-col justify-end items-end space-y-2 absolute top-4 right-10 cursor-pointer`}
-                    onClick={()=>setIsHidden(!isHidden)}
-                >
-                    <span
-                    className={`bg-teal-500 h-[2px] w-7 rounded-xl transform rotate-45 translate-y-1`}
-                    />                    
-                    <span
-                    className={`bg-teal-500 h-[2px] w-7 rounded-xl transform -rotate-45 -translate-y-1`}
-                    /> </div>
-            </div>
+          </button>
         </div>
-        <Outlet/>
-        </Fragment>
-    )
+      </nav>
+
+      <div
+        className={`fixed inset-y-0 right-0 w-64 z-50 ${
+          darkMode ? "bg-slate-800 text-white" : "bg-white text-slate-900"
+        } p-6 shadow-lg md:hidden transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex justify-end">
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-col space-y-4 mt-8">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.link}
+                className="text-lg font-medium hover:text-teal-400 transition-colors duration-300"
+                onClick={toggleMenu}
+              >
+                {item.text}
+              </Link>
+            ))}
+            <a
+              href={resume}
+              download
+              className="px-4 py-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 transition-all duration-300"
+              onClick={toggleMenu}
+            >
+              Resume
+            </a>
+          </div>
+          <div className="mt-auto">
+            <div className="flex space-x-4 justify-center">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
+              >
+                <FaTwitter size={20} />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
+              >
+                <FaLinkedin size={20} />
+              </a>
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-teal-400 transition-colors duration-300"
+              >
+                <FaGithub size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Outlet />
+    </>
+  )
 }
 
-export default Navigation;
+export default Navigation
+
