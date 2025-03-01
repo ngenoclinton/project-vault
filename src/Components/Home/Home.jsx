@@ -38,7 +38,7 @@ const {darkMode, toggleDarkMode} =useContext(DarkModeContext);
                     <h3 >I build things for the web.</h3>
                   </div> 
                   <p  className={` text-sm sm:text-[17px] mt-6 mb-14 rounded-xl leading-7 sm:max-w-md md:max-w-[500px]  lg:max-w-[525px] ${darkMode ? 'text-Grey3' : 'hero-btn load-hidden'}`}>
-                  I'm a front-end developer specializing in creating exceptional digital experiences through clean, efficient coding. With a focus on user-friendly interfaces, I deliver accessible, high-performance websites. Let's bring your ideas to life! 
+                  I'm a Software developer specializing in creating exceptional digital experiences through clean, efficient coding for the front-end. With a focus on user-friendly interfaces, I deliver accessible, high-performance websites. Let's bring your ideas to life! 
                   </p>    
                   <Link smooth to="#projects" className={`text-sm py-3 px-3 xs:text-xs md:text-sm xs:px-7 border-[1px] border-teal-400 mt-3 md:mt-4 rounded-md w-[80%] xs:w-full ${darkMode? 'text-teal-400' : 'bg-teal-400 text-primaryWhite'}`}>Check out my projects !</Link>               
                  </div>                      
